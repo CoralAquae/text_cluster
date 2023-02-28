@@ -15,8 +15,8 @@ if __name__ == '__main__':
     x_train, x_test = train_test_split(text[:], test_size=0.1, stratify=text['index'])
 
     # import model
-    tokenizer = BertTokenizer.from_pretrained('D:\\学校\\学年论文\\1.16\\chinese_roberta_wwm_ext_pytorch')
-    model = BertForSequenceClassification.from_pretrained('D:\\学校\\学年论文\\1.16\\chinese_roberta_wwm_ext_pytorch', num_labels=16).to(device)
+    tokenizer = BertTokenizer.from_pretrained('./chinese_roberta_wwm_ext_pytorch')
+    model = BertForSequenceClassification.from_pretrained('./chinese_roberta_wwm_ext_pytorch', num_labels=16).to(device)
     dropout = nn.Dropout(0.05, inplace=False)
     model.dropout = dropout
     print(model)
