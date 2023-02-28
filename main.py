@@ -9,7 +9,7 @@ from torch.utils.data import Dataset, DataLoader, TensorDataset
 if __name__ == '__main__':
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     # read data
-    f = open('D:\\学校\\实习\\toutiao_cat_data.txt', 'r', encoding='utf-8')
+    f = open('./toutiao_cat_data.txt', 'r', encoding='utf-8')
     text = get_examples(f)
     # 划分训练集测试集
     x_train, x_test = train_test_split(text[:], test_size=0.1, stratify=text['index'])
