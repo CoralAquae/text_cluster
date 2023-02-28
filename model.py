@@ -8,7 +8,7 @@ class Classifier_model(nn.Module):
         super(Classifier_model, self).__init__()
         # device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         device = torch.device('cpu')
-        self.model = BertForSequenceClassification.from_pretrained('D:\\学校\\学年论文\\1.16\\chinese_rbtl3_pytorch',
+        self.model = BertForSequenceClassification.from_pretrained('hfl/chinese-roberta-wwm-ext-large',
                                                               num_labels=16)
         self.model.to(device)
         dropout = nn.Dropout(0.4, inplace=False)
