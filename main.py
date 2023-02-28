@@ -9,14 +9,14 @@ from torch.utils.data import Dataset, DataLoader, TensorDataset
 if __name__ == '__main__':
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     # read data
-    f = open('./toutiao_cat_data.txt', 'r', encoding='utf-8')
+    f = open('toutiao_cat_data.txt', 'r', encoding='utf-8')
     text = get_examples(f)
     # 划分训练集测试集
     x_train, x_test = train_test_split(text[:], test_size=0.1, stratify=text['index'])
 
     # import model
-    tokenizer = BertTokenizer.from_pretrained('./chinese_roberta_wwm_ext_pytorch')
-    model = BertForSequenceClassification.from_pretrained('./chinese_roberta_wwm_ext_pytorch', num_labels=16).to(device)
+    tokenizer = BertTokenizer.from_pretrained('hfl/chinese-roberta-wwm-ext-large')
+    model = BertForSequenceClassification.from_pretrained('hfl/chinese-roberta-wwm-ext-large', num_labels=16).to(device)
     dropout = nn.Dropout(0.05, inplace=False)
     model.dropout = dropout
     print(model)
